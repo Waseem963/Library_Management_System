@@ -1,5 +1,7 @@
 class Book:
+    
     allowed_statuses = ["available", "checked out", "reserved"]
+
     def __init__(self, title: str, author: str, isbn: str, status: str, year: int):
         self.title = title
         self.author = author
