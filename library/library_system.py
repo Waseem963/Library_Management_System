@@ -2,27 +2,48 @@ from book import Book
 
 class Library:
     def __init__(self)->None:
-        self.books = []
+        self.__books = []
     
+    def __str__(self) -> str:
+        return f"Library contains {len(self.books)} books."
+    
+    def __repr__(self) -> str:
+        return f"Library({len(self.books)})."
+    
+    @property
+    def books(self) -> list:
+            return self.__books
+
     def add_book(self, title: str, author: str, isbn: str, status: str, year: int)-> None:
+        if any(book.isbn == isbn for book in self.books):
+            raise ValueError(f"Book with ISBN {isbn} already exists.")
+        
         new_book = Book(title, author, isbn, status, year)
         self.books.append(new_book)
     
-    def list_books(self) -> list:
+    def list_books(self) -> None:
+        if not self.books:
+            return "Library is empty."
+        
+        result = ""
         for book in self.books:
-            return f'{book}'
+            result += f"{book}\n"
+        return result
 
 
-    def search_book(self, isbn_num: str)->str:
+    def search_book(self, isbn_num: str)->Book:
         for book in self.books:
             if isbn_num == book.isbn:
                 return book 
-        return 'Book not found in the library!'
+        raise LookupError(f"Book with ISBN {isbn_num} not found.")
 
 
-lol = Library()
+    def remove_book(self, isbn_num: str)-> str:
+        for book in self.books:
+            if isbn_num == book.isbn:
+                self.books.remove(book)
+                return f'Book {book.title} with ISBN {book.isbn} has been removed'
+            
+        raise LookupError(f"Book with ISBN {isbn_num} not found.")
+             
 
-lol.add_book('lol', 'ok', '23','available', 20 )
-lol.add_book('235', 'ok23', '2233','available', 230 )
-lol.add_book('235', 'ok23', '23333s','available', 230 )
-print(lol.search_book("23333s"))
