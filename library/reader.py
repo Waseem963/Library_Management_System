@@ -29,4 +29,7 @@ class Reader(User):
     def return_book(self) -> None:
         if self.__borrowed_books > 0:
             self.__borrowed_books -= 1
-    
+
+b = Reader("ali", "3333", "2")
+
+print(b)
