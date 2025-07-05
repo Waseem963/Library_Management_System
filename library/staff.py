@@ -1,5 +1,5 @@
 from user import User
-#from library import Library 
+from library import Library 
 
 class Staff(User):
     def __init__(self, name: str, user_id: str, position: str, department: str) -> None:
@@ -24,5 +24,5 @@ class Staff(User):
     def show_role(self) -> str:
         return f"Staff"
 
-    #def register_book(self, library: "Library", title: str, author: str, isbn: str, status: str, year: int) -> None:
-        #library.add_book(title, author, isbn, status, year)
+    def register_book(self, library: "Library", title: str, author: str, isbn: str, status: str, year: int) -> None:
+        library.add_book(title, author, isbn, status, year)

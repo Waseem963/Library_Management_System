@@ -6,7 +6,7 @@ class Book:
         self.title = title
         self.author = author
         self.__isbn = isbn
-        self.status = status # Using the setter to validate status
+        self.status = status 
         self.year = year
     
     def __str__(self) -> str:
