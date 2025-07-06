@@ -1,5 +1,20 @@
 class Book:
+    """
+    This class represents book object.
 
+    Attributes:
+    allowed_statuses (List): allowed statuses that the user can use to represent books status.
+    title (str): Name of the book.
+    author (str): Who wrote the book.
+    isbn (str): Unique number represents the book.
+    status (str): status of the book (available, checked out, etc..)
+    year (int): When the book has been publiched.
+
+    Methods:
+    status() (setter): to add a specific status to the book.
+
+
+    """
     allowed_statuses = ["available", "checked out", "reserved"]
 
     def __init__(self, title: str, author: str, isbn: str, status: str, year: int) -> None:
@@ -24,6 +39,7 @@ class Book:
     def status(self) -> str:
         return self._status
 
+    # Add a specific status to the book
     @status.setter
     def status(self, status: str) -> None:
         if status not in Book.allowed_statuses:

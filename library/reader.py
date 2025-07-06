@@ -1,7 +1,22 @@
 from user import User
 
 class Reader(User):
+    """
+    This class represents Reader users that are registerd in the library.
 
+    Attributes:
+    super().__init__(name, user_id) (str, str): inheretence attributes from User class (name, user_id).
+    borrowed_books (int): Count borrowed books from the library.
+
+    Method:
+    show_role(): Return user role (Reader).
+    borrow_book(): Add 1 to borrowed books to count how many books has been borrowed from the library.
+    return_book(): Subtract 1 from borrowed books when a user return a book.
+
+    
+    
+    
+    """
     def __init__(self, name: str, user_id: str, borrowed_books : int) -> None:
         super().__init__(name, user_id)
         self.__borrowed_books  = borrowed_books 
