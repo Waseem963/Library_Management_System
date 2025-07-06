@@ -25,23 +25,29 @@ class UserManager:
         self.__users = []
         self.__staff_books = {}
 
+    # Add user to users list
     def add_user(self, user: User) -> None:
         self.__users.append(user)
     
+    # Print all users in the library
     def get_all_users(self) -> list:
         return self.__users
     
+    # Print all readers.
     def get_readers(self) -> list:
         return [user for user in self.__users if isinstance(user, Reader)]
 
+    # Print all staff
     def get_staff(self) -> list:
         return [user for user in self.__users if isinstance(user, Staff)]
     
+    # Count books added by staff
     def record_book_addition(self, staff: Staff) -> None:
         if staff.user_id in self.__staff_books:
             self.__staff_books[staff.user_id] += 1
         else:
             self.__staff_books[staff.user_id] = 1
 
+    # Print count books that added by staff
     def books_by_staff(self, staff: Staff) -> int:
         return self.__staff_books.get(staff.user_id, 0)
