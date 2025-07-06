@@ -1,6 +1,7 @@
-from library_system import Library
-from reader import Reader
-from staff import Staff
+from library.library_system import Library
+from library.user_manager import UserManager
+from library.reader import Reader
+from library.staff import Staff
 
 class Statistics:
     """
@@ -20,9 +21,9 @@ class Statistics:
 
     """
 
-    def __init__(self) -> None:
-        self.library = Library()
-        self.staff = Staff
+    def __init__(self, library: Library, user_manager: UserManager) -> None:
+        self.library = library
+        self.user_manager = user_manager
     
     # Show total books in the library for all its status
     def total_books(self) -> int:
@@ -44,10 +45,10 @@ class Statistics:
         return len(reserved_books)
 
     # Return total users in the library (readers, staff)
-    # def users_count(self) -> int:
-    #     readers = [reader for reader in self.library.books if isinstance(reader, Reader)]
-    #     staff = [staff for staff in self.library.books if isinstance(staff, Staff)]
-    #     return len(readers) + len(staff)
+    def users_count(self) -> int:
+        readers = [user for user in self.user_manager.get_all_users() if isinstance(user, Reader)]
+        staff = [user for user in self.user_manager.get_all_users() if isinstance(user, Staff)]
+        return len(readers) + len(staff)
 
     # Return how many books a staff added to the library
     # def books_by_staff(self, staff: Staff) -> int:

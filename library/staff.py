@@ -1,5 +1,5 @@
-from user import User
-from library_system import Library 
+from library.user import User
+from library.library_system import Library 
 
 class Staff(User):
     """

@@ -1,4 +1,4 @@
-from user import User
+from library.user import User
 
 class Reader(User):
     """
