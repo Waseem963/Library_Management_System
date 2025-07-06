@@ -41,7 +41,7 @@ class Statistics:
     
     # Show reserved books in the library
     def reserved_books(self) -> int:
-        reserved_books = [book for book in self.library.books if book.status == "reserved_books"]
+        reserved_books = [book for book in self.library.books if book.status == "reserved"]
         return len(reserved_books)
 
     # Return total users in the library (readers, staff)

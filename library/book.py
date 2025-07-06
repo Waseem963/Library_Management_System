@@ -42,6 +42,7 @@ class Book:
     # Add a specific status to the book
     @status.setter
     def status(self, status: str) -> None:
+        status = status.lower()
         if status not in Book.allowed_statuses:
             raise ValueError(f"Status must be one of {Book.allowed_statuses}")
         else:

@@ -4,6 +4,21 @@ from library.reader import Reader
 
 
 class UserManager:
+    """
+    This class manage users in the system.
+
+    Attributes:
+    users (list): represents all users in the system (staff, readers).
+    staff_books (dictionary): total books a staff added to the library.
+
+    
+    
+    
+    
+    """
+
+
+
     def __init__(self) -> None:
         self.__users = []
         self.__staff_books = {}

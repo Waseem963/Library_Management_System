@@ -40,8 +40,5 @@ class Staff(User):
 
     # register books in the library.
     def register_book(self, library: "Library", title: str, author: str, isbn: str, status: str, year: int) -> None:
-        try:
             library.add_book(title, author, isbn, status, year)
-            return f"Staff {self.name} registered book '{title}' successfully."
-        except ValueError as e:
-            return str(e)
+            print( f"Staff {self.name} registered book '{title}' successfully.") 
