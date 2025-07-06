@@ -50,11 +50,5 @@ class Statistics:
         staff = [user for user in self.user_manager.get_all_users() if isinstance(user, Staff)]
         return len(readers) + len(staff)
 
-    # Return how many books a staff added to the library
-    # def books_by_staff(self, staff: Staff) -> int:
-    #     count = 0
-    #     for book in self.library.books:
-    #         if hasattr(book, 'added_by') and book.added_by == staff.name:
-    #             count += 1
-    #     return count
+
 
